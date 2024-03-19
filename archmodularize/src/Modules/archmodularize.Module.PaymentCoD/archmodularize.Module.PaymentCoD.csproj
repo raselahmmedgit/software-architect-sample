@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <ItemGroup>
+    <Content Remove="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\archmodularize.Infrastructure\archmodularize.Infrastructure.csproj" />
+    <ProjectReference Include="..\archmodularize.Module.Core\archmodularize.Module.Core.csproj" />
+    <ProjectReference Include="..\archmodularize.Module.Orders\archmodularize.Module.Orders.csproj" />
+    <ProjectReference Include="..\archmodularize.Module.Payments\archmodularize.Module.Payments.csproj" />
+  </ItemGroup>
+
+</Project>

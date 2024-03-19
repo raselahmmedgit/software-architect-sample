@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\archmodularize.Infrastructure\archmodularize.Infrastructure.csproj" />
+    <ProjectReference Include="..\archmodularize.Module.Core\archmodularize.Module.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>aspnet-Modular.WebHost-dca604fa-ee10-4a6c-8e7d-8cc79dca8c8f</UserSecretsId>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\**\*;modules.json;appsettings.json;Modules\**\*;Themes\**\*;Views\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\archmodularize.Module.ActivityLog\archmodularize.Module.ActivityLog.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Catalog\archmodularize.Module.Catalog.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Cms\archmodularize.Module.Cms.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Comments\archmodularize.Module.Comments.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Contacts\archmodularize.Module.Contacts.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.DinkToPdf\archmodularize.Module.DinkToPdf.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Inventory\archmodularize.Module.Inventory.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.News\archmodularize.Module.News.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Orders\archmodularize.Module.Orders.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentBraintree\archmodularize.Module.PaymentBraintree.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentCashfree\archmodularize.Module.PaymentCashfree.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentCoD\archmodularize.Module.PaymentCoD.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentPaypalExpress\archmodularize.Module.PaymentPaypalExpress.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentStripe\archmodularize.Module.PaymentStripe.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentMomo\archmodularize.Module.PaymentMomo.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.PaymentNganLuong\archmodularize.Module.PaymentNganLuong.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Payments\archmodularize.Module.Payments.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Pricing\archmodularize.Module.Pricing.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.ProductComparison\archmodularize.Module.ProductComparison.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.ProductRecentlyViewed\archmodularize.Module.ProductRecentlyViewed.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Reviews\archmodularize.Module.Reviews.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.SampleData\archmodularize.Module.SampleData.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Search\archmodularize.Module.Search.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Shipments\archmodularize.Module.Shipments.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.ShippingFree\archmodularize.Module.ShippingFree.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.ShippingPrices\archmodularize.Module.ShippingPrices.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.ShippingTableRate\archmodularize.Module.ShippingTableRate.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Shipping\archmodularize.Module.Shipping.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.ShoppingCart\archmodularize.Module.ShoppingCart.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Tax\archmodularize.Module.Tax.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Vendors\archmodularize.Module.Vendors.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.WishList\archmodularize.Module.WishList.csproj" />
+    <ProjectReference Include="..\archmodularize.Infrastructure\archmodularize.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Core\archmodularize.Module.Core.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.Localization\archmodularize.Module.Localization.csproj" />
+
+    <ProjectReference Include="..\Modules\archmodularize.Module.EmailSenderSmtp\archmodularize.Module.EmailSenderSmtp.csproj" />
+    <ProjectReference Include="..\Modules\archmodularize.Module.StorageLocal\archmodularize.Module.StorageLocal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.0.1" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="Microsoft.AspNetCore.Antiforgery" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00767" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+</Project>

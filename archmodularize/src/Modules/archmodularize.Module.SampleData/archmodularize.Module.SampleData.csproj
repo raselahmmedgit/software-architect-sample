@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\archmodularize.Infrastructure\archmodularize.Infrastructure.csproj" />
+    <ProjectReference Include="..\archmodularize.Module.Core\archmodularize.Module.Core.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <SampleContent Include="SampleContent\**\*.*" />
+  </ItemGroup>
+  
+  <Target Name="CopyModule" AfterTargets="Build">
+    <Copy
+            SourceFiles="@(SampleContent)"
+            DestinationFiles="@(SampleContent->'..\..\archmodularize.WebHost\Modules\archmodularize.Module.SampleData\SampleContent\%(RecursiveDir)%(Filename)%(Extension)')"
+        />
+  </Target>
+</Project>
