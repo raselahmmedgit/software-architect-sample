@@ -1,0 +1,1 @@
+PaymentService contracts (kept separate). This project is intentionally minimal for the sample.

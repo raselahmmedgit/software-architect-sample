@@ -1,0 +1,83 @@
+version: '3.8'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  orderservice.api:
+    build:
+      context: .
+      dockerfile: OrderService.API/Dockerfile
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AppDb;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USER=guest
+      - RABBITMQ__PASS=guest
+    ports:
+      - '5000:80'
+
+  orderservice.consumer:
+    build:
+      context: .
+      dockerfile: OrderService.Consumer/Dockerfile
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    environment:
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USER=guest
+      - RABBITMQ__PASS=guest
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AppDb;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+
+  paymentservice.api:
+    build:
+      context: .
+      dockerfile: PaymentService.API/Dockerfile
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AppDb;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USER=guest
+      - RABBITMQ__PASS=guest
+    ports:
+      - '6000:80'
+
+  paymentservice.consumer:
+    build:
+      context: .
+      dockerfile: PaymentService.Consumer/Dockerfile
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    environment:
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USER=guest
+      - RABBITMQ__PASS=guest
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AppDb;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+
+volumes:
+  sqlserver-data:
+  rabbitmq-data:
