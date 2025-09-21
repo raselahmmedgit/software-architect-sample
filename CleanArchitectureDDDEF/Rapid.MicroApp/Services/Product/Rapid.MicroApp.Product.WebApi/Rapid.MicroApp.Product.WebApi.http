@@ -1,6 +1,0 @@
-@Rapid.MicroApp.Product.WebApi_HostAddress = http://localhost:5127
-
-GET {{Rapid.MicroApp.Product.WebApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
