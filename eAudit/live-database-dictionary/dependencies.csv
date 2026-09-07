@@ -1,0 +1,4 @@
+Msg 207, Level 16, State 1, Server stg-biams-e-audit\MSSQLSERVER2022, Line 1
+Invalid column name 'referencing_schema_name'.
+Msg 207, Level 16, State 1, Server stg-biams-e-audit\MSSQLSERVER2022, Line 1
+Invalid column name 'referencing_entity_name'.
